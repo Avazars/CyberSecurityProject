@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "4MxdjbxUu+tBKVPfC00ShrDkTqcarPQYtVeCUpOhkf3c7N3W/cAbia+SBhs6UexPZMhe/QEOE4wJRxu3af95IQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jadin\\Documents\\Git Repos\\CyberSecurityProject\\CyberSecurityProject\\CyberSecurityProject\\CyberSecurityProject.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jadin\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\jadin\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
