@@ -3,8 +3,10 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Windows;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Microsoft.Win32;
+using PixelFormat = System.Drawing.Imaging.PixelFormat;
 
 namespace CyberSecurityProject
 {
@@ -79,6 +81,22 @@ namespace CyberSecurityProject
                 bitmapImage.Freeze();
 
                 return bitmapImage;
+            }
+        }
+
+        private void SaveButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog()
+            {
+                Filter = "All supported graphics|*.png|" +
+                         "Portable Network Graphic (*.png)|*.png",
+                Title = "SavePNG",
+            };
+            
+            if (sfd.ShowDialog() == true)
+            {
+                string path = sfd.FileName;
+                encodedBitStorage.Save(sfd.FileName);
             }
         }
     }
