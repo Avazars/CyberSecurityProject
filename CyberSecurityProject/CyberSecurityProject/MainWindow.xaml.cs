@@ -1,23 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Microsoft.Win32;
-using PixelFormat = System.Drawing.Imaging.PixelFormat;
-using Point = System.Windows.Point;
 
 namespace CyberSecurityProject
 {
@@ -68,27 +55,15 @@ namespace CyberSecurityProject
             
             if (op.ShowDialog() == true)
             {
-                BitmapImage temp = new BitmapImage(new Uri(op.FileName));
-                Image.Source = temp;
-                bitStorage = ImageToBitmap(temp);
-                bitStorage = bitStorage.Clone(new Rectangle())
-            }
-            
-        }
-
-        private Bitmap ImageToBitmap(BitmapImage bitImg)
-        {
-            using (MemoryStream outStream = new MemoryStream())
-            {
-                BitmapEncoder encoder = new BmpBitmapEncoder();
-                encoder.Frames.Add(BitmapFrame.Create(bitImg));
-                encoder.Save(outStream);
-                Bitmap returnBitmap = new Bitmap(outStream);
-
-                return returnBitmap;
                 
+                Bitmap map = new Bitmap(op.FileName);
+                Bitmap clone = map.Clone(new Rectangle(0, 0, map.Width, map.Height), PixelFormat.Format32bppArgb);
+                Image.Source = ToBitmapImage(clone);
+                bitStorage = clone;
             }
         }
+
+        
         public static BitmapImage ToBitmapImage(Bitmap bitmap)
         {
             using (var memory = new MemoryStream())
