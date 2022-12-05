@@ -10,6 +10,7 @@
         <Button Click="LoadButton_OnClick" Content="Load Image" HorizontalAlignment="Left" Margin="214,315,0,0" VerticalAlignment="Top" Height="29" Width="96"/>
         <Button Click="DecodeButton_OnClick" Content="Decode Image" HorizontalAlignment="Left" Margin="342,281,0,0" VerticalAlignment="Top" Height="29" Width="93"/>
         <Button Click="SaveButton_OnClick" Content="Save Encoded" HorizontalAlignment="Left" Margin="10,315,0,0" VerticalAlignment="Top" Height="29" Width="96"/>
+        <Button Click="ClearButton_OnClick" Name="ClearButton" Content="Clear Image" HorizontalAlignment="Left" Margin="112,315,0,0" VerticalAlignment="Top" Height="29" Width="96"/>
         <Button Click="EncodeButton_OnClick" Content="Encode Image" HorizontalAlignment="Left" Margin="342,89,0,0" VerticalAlignment="Top" Height="29" Width="93"/>
         
         <Image Name="Image" HorizontalAlignment="Left" Height="300" Margin="10,10,0,0" VerticalAlignment="Top" Width="300"/>

@@ -15,8 +15,8 @@ namespace CyberSecurityProject
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Bitmap bitStorage;
-        private Bitmap encodedBitStorage; 
+        private Bitmap _bitStorage;
+        private Bitmap _encodedBitStorage; 
         
         public MainWindow()
         {
@@ -32,16 +32,16 @@ namespace CyberSecurityProject
                     Filter = "Images|*.png;*.bmp;*.jpg"
                 };
                
-                encodedBitStorage = SteganographyHelper.embedText(EncodeText.Text, bitStorage);
-                Image.Source = ToBitmapImage(encodedBitStorage);
+                _encodedBitStorage = SteganographyHelper.embedText(EncodeText.Text, _bitStorage);
+                Image.Source = ToBitmapImage(_encodedBitStorage);
             }
         }
 
         private void DecodeButton_OnClick(object sender, RoutedEventArgs e)
         {
-            if (!bitStorage.Equals(null))
+            if (!_bitStorage.Equals(null))
             {
-                DecodeText.Text = SteganographyHelper.extractText(bitStorage);
+                DecodeText.Text = SteganographyHelper.extractText(_bitStorage);
             }
         }
 
@@ -61,10 +61,9 @@ namespace CyberSecurityProject
                 Bitmap map = new Bitmap(op.FileName);
                 Bitmap clone = map.Clone(new Rectangle(0, 0, map.Width, map.Height), PixelFormat.Format32bppArgb);
                 Image.Source = ToBitmapImage(clone);
-                bitStorage = clone;
+                _bitStorage = clone;
             }
         }
-
         
         public static BitmapImage ToBitmapImage(Bitmap bitmap)
         {
@@ -96,8 +95,15 @@ namespace CyberSecurityProject
             if (sfd.ShowDialog() == true)
             {
                 string path = sfd.FileName;
-                encodedBitStorage.Save(sfd.FileName);
+                _encodedBitStorage.Save(sfd.FileName);
             }
+        }
+
+        private void ClearButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            _encodedBitStorage = null;
+            _bitStorage = null;
+            Image.Source = null;
         }
     }
 }
